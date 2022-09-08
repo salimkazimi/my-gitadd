@@ -5,15 +5,14 @@ var expresslayout =require('express-ejs-layouts')
 require('dotenv').config()
 
 var indexRouter= require('./routes/index')
-
-var bodyparser = require('body-parser')
-var cookieparser = require('cookie-parser')
+var loginRouter= require('./routes/login')
+var registerRouter= require('./routes/register')
 
 //database require
 var mongoose = require('mongoose')
 
 mongoose.connect('mongodb://localhost/hpDB');
-var logmodel=require('./models/login')
+var regmodel = require('./models/register')
 app.set('views', path.join(__dirname, 'views'))
 
 app.set('view engine','ejs' )
@@ -23,13 +22,12 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(expresslayout)
 
 app.use(express.urlencoded({extended:false}))
-app.use(bodyparser.urlencoded({extended:false}))
+
 app.use(express.json())
-app.use(cookieparser)
 
 app.use('/',indexRouter)
-
-
+app.use('/login',loginRouter)
+app.use('/register',registerRouter)
 
 app.listen(process.env.PORT || 3000)
 module.exports=app

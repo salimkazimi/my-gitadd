@@ -1,0 +1,37 @@
+<style >
+
+table,th,td,tr{
+    border: 1px solid seagreen;
+    border-collapse: collapse;
+    text-align: center;
+}
+table{
+    width: 100%;
+}
+</style>
+
+<table>
+    <tr >
+        <th>username</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Action</th>
+    </tr>
+    <% employeeData.forEach(function(epl){ %>
+
+        <tr>
+            <td><%- epl.username %></td>
+            <td><%- epl.email %></td>
+            <td><%- epl.password %></td>
+            <td>
+          <a href="/employee/myeditform/<%= epl._id %>">
+            <button>Edit</button>
+          </a>
+          <a href="/employee/delete/<%= epl._id %>">
+            <button>delete</button>
+          </a>
+        </td>
+        </tr>
+        
+   <% }) %>
+</table>

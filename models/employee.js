@@ -1,6 +1,6 @@
 var mongoose = require('mongoose')
 
-var regSchema = mongoose.Schema({
+var registSchema = mongoose.Schema({
     username:{
         type:String
     },
@@ -9,10 +9,7 @@ var regSchema = mongoose.Schema({
     },
     password:{
         type:String
-    },
-    profilePic:{
-        type: String
     }
 })
-var regmodel = mongoose.model('Employee',regSchema)
-module.exports = regmodel
+var registmodel=mongoose.model('employee',registSchema)
+module.exports=registmodel

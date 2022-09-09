@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var multer = require('multer')
-const regmodel = require('../models/register')
+const regmodel = require('../models/register');
 
 router.get('/', function(req,res,next){
-    res.render('./register/register')
+    res.render('./register/register', {layout: './register/register'})
 })
 
 var profilePicStorage = multer.diskStorage({

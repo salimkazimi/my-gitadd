@@ -14,7 +14,7 @@ app.set('layout register', false)
 //database require
 var mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost/hpDB');
+mongoose.connect(process.env.DATABASE_URL);
 var regmodel = require('./models/register');
 var registmodel = require('./models/employee');
 
